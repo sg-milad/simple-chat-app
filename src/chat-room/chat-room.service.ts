@@ -23,6 +23,9 @@ export class ChatRoomService {
         const user = await this.userService.getUserById(senderId)
         const chatRoom = await this.getChatRomById(chatRoomId)
 
+        if (!user) {
+            throw new NotFoundException("user not found")
+        }
         if (!chatRoom) {
             throw new NotFoundException("chat room not found")
         }
