@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// dooon't forget to do
+// npx prisma generate
+// npx prisma db push
+
+// npx prisma studio
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model ChatRoom {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  messages  Message[]
+  userIds   String[]  @db.ObjectId
+  users     User[]    @relation(fields: [userIds], references: [id])
+  createdAt DateTime  @default(now())
+}
+
+model Message {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  content    String
+  senderId   String   @db.ObjectId
+  sender     User     @relation(fields: [senderId], references: [id])
+  createdAt  DateTime @default(now())
+  chatRoomId String   @db.ObjectId
+  ChatRoom   ChatRoom @relation(fields: [chatRoomId], references: [id])
+}
+
+model User {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  username    String     @unique
+  chatRoomIds String[]   @db.ObjectId
+  chatRooms   ChatRoom[] @relation(fields: [chatRoomIds], references: [id])
+  createdAt   DateTime   @default(now())
+  Message     Message[]
+}
