@@ -5,7 +5,7 @@ import { CreateChatRoomDto } from '../chat-room/dto/CreateChatRoom.dto';
 import { ChatRoomDto } from '../chat-room/dto/ChatRoom.dto';
 import { SendMessageDto } from '../chat-room/dto/SendMessage.dto';
 import { JoinChatRoomDto } from './dto/JoinChatRoom.dto';
-import { ValidateMongoIdPipe } from 'src/shared/helper/validate-mongo-id';
+import { ValidateMongoIdPipe } from '../shared/helper/validate-mongo-id';
 
 @ApiTags('chat-rooms')
 @Controller('chat-rooms')
