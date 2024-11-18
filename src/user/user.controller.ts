@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Param, Body } from '@nestjs/common';
+import { Controller, Post, Get, Param, Body, NotFoundException } from '@nestjs/common';
 import { UserService } from './user.service';
 import { ApiTags, ApiOperation, ApiParam, ApiOkResponse } from '@nestjs/swagger';
 import { UserResponseDto as UserDtoResponse } from './dto/user.response.dto';
@@ -28,6 +28,9 @@ export class UserController {
         type: UserDtoResponse,
     })
     async getUserById(@Param('id', ValidateMongoIdPipe) id: string) {
-        return await this.userService.getUserById(id);
+        const user = await this.userService.getUserById(id);
+        if (!user) {
+            throw new NotFoundException("User not found")
+        }
     }
 }

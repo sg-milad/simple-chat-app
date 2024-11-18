@@ -59,9 +59,6 @@ export class ChatRoomController {
         type: SendMessageDto,
     })
     async getMessages(@Param('id', ValidateMongoIdPipe) id: string) {
-        const chatRoom = await this.chatRoomService.getMessages(id);
-        if (!chatRoom) {
-            throw new NotFoundException("chat room not found")
-        }
+        return await this.chatRoomService.getMessages(id);
     }
 }
