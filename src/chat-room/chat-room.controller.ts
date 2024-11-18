@@ -1,9 +1,9 @@
 import { Controller, Post, Get, Param, Body, NotFoundException } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiParam, ApiOkResponse } from '@nestjs/swagger';
-import { ChatRoomService } from 'src/chat-room/chat-room.service';
-import { CreateChatRoomDto } from 'src/chat-room/dto/CreateChatRoom.dto';
-import { ChatRoomDto } from 'src/chat-room/dto/ChatRoom.dto';
-import { SendMessageDto } from 'src/chat-room/dto/SendMessage.dto';
+import { ChatRoomService } from '../chat-room/chat-room.service';
+import { CreateChatRoomDto } from '../chat-room/dto/CreateChatRoom.dto';
+import { ChatRoomDto } from '../chat-room/dto/ChatRoom.dto';
+import { SendMessageDto } from '../chat-room/dto/SendMessage.dto';
 import { JoinChatRoomDto } from './dto/JoinChatRoom.dto';
 import { ValidateMongoIdPipe } from 'src/shared/helper/validate-mongo-id';
 

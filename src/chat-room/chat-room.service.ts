@@ -1,7 +1,7 @@
 import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { ChatRoom, Message } from '@prisma/client';
-import { PrismaService } from 'src/shared/prisma/prisma.service';
-import { UserService } from 'src/user/user.service';
+import { PrismaService } from '../shared/prisma/prisma.service';
+import { UserService } from '../user/user.service';
 import { SendMessageDto } from './dto/SendMessage.dto';
 
 @Injectable()

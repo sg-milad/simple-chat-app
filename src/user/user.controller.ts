@@ -3,7 +3,7 @@ import { UserService } from './user.service';
 import { ApiTags, ApiOperation, ApiParam, ApiOkResponse } from '@nestjs/swagger';
 import { UserResponseDto as UserDtoResponse } from './dto/user.response.dto';
 import { UserCreate } from './dto/user.create.dto';
-import { ValidateMongoIdPipe } from 'src/shared/helper/validate-mongo-id';
+import { ValidateMongoIdPipe } from '../shared/helper/validate-mongo-id';
 
 @ApiTags('users')
 @Controller('users')

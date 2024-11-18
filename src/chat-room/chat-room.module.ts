@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ChatRoomService } from './chat-room.service';
 import { ChatRoomController } from './chat-room.controller';
-import { UserModule } from 'src/user/user.module';
+import { UserModule } from '../user/user.module';
 
 @Module({
   imports: [UserModule],
