@@ -13,7 +13,7 @@ please copy and past these commands
 ## Documentation
 
 after build please open [localhost](http://localhost:3000/docs).
-or you can import [docs]() to postman
+or you can import [docs](https://github.com/sg-milad/simple-chat-app/blob/master/docs-json.json) to postman
 
 ## tests
 
