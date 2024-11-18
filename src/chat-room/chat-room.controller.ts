@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Param, Body } from '@nestjs/common';
+import { Controller, Post, Get, Param, Body, NotFoundException } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiParam, ApiOkResponse } from '@nestjs/swagger';
 import { ChatRoomService } from 'src/chat-room/chat-room.service';
 import { CreateChatRoomDto } from 'src/chat-room/dto/CreateChatRoom.dto';
@@ -59,6 +59,9 @@ export class ChatRoomController {
         type: SendMessageDto,
     })
     async getMessages(@Param('id', ValidateMongoIdPipe) id: string) {
-        return await this.chatRoomService.getMessages(id);
+        const chatRoom = await this.chatRoomService.getMessages(id);
+        if (!chatRoom) {
+            throw new NotFoundException("chat room not found")
+        }
     }
 }
