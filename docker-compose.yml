@@ -8,7 +8,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: pass
-      INIT_WAIT_SEC: 3
+      INIT_WAIT_SEC: 5
     ports:
       - 27017:27017
   app:
