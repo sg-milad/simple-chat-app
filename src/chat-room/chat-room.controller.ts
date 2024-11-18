@@ -4,7 +4,7 @@ import { ChatRoomService } from 'src/chat-room/chat-room.service';
 import { CreateChatRoomDto } from 'src/chat-room/dto/CreateChatRoom.dto';
 import { ChatRoomDto } from 'src/chat-room/dto/ChatRoom.dto';
 import { SendMessageDto } from 'src/chat-room/dto/SendMessage.dto';
-import { JoinChatRoomDto } from './dto/Join.ChatRoom.dto';
+import { JoinChatRoomDto } from './dto/JoinChatRoom.dto';
 import { ValidateMongoIdPipe } from 'src/shared/helper/validate-mongo-id';
 
 @ApiTags('chat-rooms')
